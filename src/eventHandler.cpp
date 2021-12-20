@@ -16,7 +16,7 @@ void EventHandler::HandleEvent(SDL_Renderer* renderer, Draw draw) {
      */
     if (event.type == SDL_MOUSEBUTTONDOWN) canDraw = true;
     if (canDraw) {
-        Circle cir = draw.DrawCircle(event.button.x, event.button.y, 10, std::string(color));
+        Circle cir = draw.DrawCircle(event.button.x, event.button.y, size, std::string(color));
         circles.push_back(cir);
     }
     for (auto& circle : circles) {

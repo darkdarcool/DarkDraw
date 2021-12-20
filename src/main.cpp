@@ -8,6 +8,9 @@
 #include "RedButton.h"
 #include "YellowButton.h"
 #include "EraserButton.h"
+#include "Size30Button.h"
+#include "Size20Button.h"
+#include "Size10Button.h"
 
 int main() {
     Game game(1200, 800, "AmeliaDraw");
@@ -22,6 +25,9 @@ int main() {
     RedButton redButton(game.renderer);
     YellowButton yellowButton(game.renderer);
     EraserButton eraserButton(game.renderer);
+    Size30Button size30Button(game.renderer);
+    Size20Button size20Button(game.renderer);
+    Size10Button size10Button(game.renderer);
 
     // End of important classes
 
@@ -43,6 +49,9 @@ int main() {
         redButton.Render();
         yellowButton.Render();
         eraserButton.Render();
+        size30Button.Render();
+        size20Button.Render();
+        size10Button.Render();
 
         if (blackButton.ShouldChangeColor(&event)) {
             eventHandler.color = "black";
@@ -58,6 +67,15 @@ int main() {
         }
         if (eraserButton.ShouldChangeColor(&event)) {
             eventHandler.color = "white"; // White is the background color so it simulates erasing
+        }
+        if (size30Button.ShouldChangeSize(&event)) {
+            eventHandler.size = 30;
+        }
+        if (size20Button.ShouldChangeSize(&event)) {
+            eventHandler.size = 20;
+        }
+        if (size10Button.ShouldChangeSize(&event)) {
+            eventHandler.size = 10;
         }
         if (trashButton.ShouldDelete(&event)) {
             eventHandler.Reset();
